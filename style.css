@@ -237,25 +237,18 @@ section.panel {
   overflow: hidden;
 }
 
-.home-bg .wave {
-  position: absolute;
-  left: -6%;
-  right: -6%;
-  top: 18%;
-  width: 112%;
-  height: auto;
-  opacity: .55;
-}
-
+.home-bg .wave,
 .home-bg .wave-2 {
   position: absolute;
   left: -6%;
   right: -6%;
-  top: 48%;
   width: 112%;
   height: auto;
-  opacity: .35;
+  opacity: 1;
 }
+
+.home-bg .wave { top: 18% }
+.home-bg .wave-2 { top: 48% }
 
 .home-wrap {
   position: relative;
@@ -493,7 +486,7 @@ section.panel {
   font-weight: 900;
   font-size: clamp(64px, 9vw, 140px);
   letter-spacing: -.04em;
-  line-height: .9;
+  line-height: 1.1;
   color: var(--blue);
 }
 
