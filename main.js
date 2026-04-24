@@ -1,6 +1,11 @@
+/* ================ Reduced motion check ================ */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+
 /* ================ Tweak defaults ================ */
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "blue": "electric",
+  "blue": "fluorescent",
   "waves": "on",
   "mascot": "letter",
   "sparks": "on"
@@ -75,6 +80,35 @@ window.addEventListener('scroll', updateSpy, { passive: true });
 updateSpy();
 
 
+/* ================ Custom cursor ================ */
+if (!isTouch && !reducedMotion) {
+  const dot = document.getElementById('cursorDot');
+  let mx = 0, my = 0, dx = 0, dy = 0;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  (function moveDot() {
+    dx += (mx - dx) * 0.18;
+    dy += (my - dy) * 0.18;
+    dot.style.left = dx + 'px';
+    dot.style.top = dy + 'px';
+    requestAnimationFrame(moveDot);
+  })();
+
+  const hoverTargets = 'a, button, .work, .skill, .like';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(hoverTargets)) dot.classList.add('hover');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(hoverTargets)) dot.classList.remove('hover');
+  });
+} else {
+  document.body.style.cursor = 'auto';
+  const dot = document.getElementById('cursorDot');
+  if (dot) dot.style.display = 'none';
+}
+
+
 /* ================ Tweaks panel ================ */
 const tweaks = document.getElementById('tweaks');
 
@@ -87,9 +121,9 @@ window.addEventListener('message', e => {
 try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch {}
 
 function applyState() {
-  const BLUES = { electric: '#1C3CFF', royal: '#0a24c9', sky: '#0EA5E9' };
+  const BLUES = { fluorescent: '#3D5AFF', royal: '#1C3CFF', sky: '#0EA5E9' };
 
-  document.documentElement.style.setProperty('--blue', BLUES[state.blue] || '#1C3CFF');
+  document.documentElement.style.setProperty('--blue', BLUES[state.blue] || '#3D5AFF');
   document.querySelector('.home-bg').style.display = state.waves === 'off' ? 'none' : 'block';
   document.querySelectorAll('.spark, .deco-spark, .home-avatar .sparkle').forEach(s => {
     s.style.display = state.sparks === 'off' ? 'none' : '';
@@ -97,7 +131,6 @@ function applyState() {
 
   const letter = state.mascot === 'p' ? 'p' : 'え';
   document.querySelector('.mascot .letter').textContent = letter;
-  document.querySelectorAll('.home-avatar .mark').forEach(m => m.textContent = letter);
 
   document.querySelectorAll('.tweaks .ctl').forEach(ctl => {
     const key = ctl.dataset.group;

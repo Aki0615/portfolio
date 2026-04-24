@@ -6,7 +6,7 @@
   <title>えいでん — portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Humane:wght@400;700&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,14 +32,14 @@
 
   <!-- Background waves -->
   <svg class="home-bg" viewBox="0 0 1400 900" preserveAspectRatio="none" aria-hidden="true" style="height:100%">
-    <path class="wave"   d="M-50,350 Q250,180 550,350 T1150,350 T1750,350" fill="none" stroke="#1C3CFF" stroke-width="80" stroke-linecap="round" opacity="0.08"/>
-    <path class="wave-2" d="M-50,520 Q320,380 640,520 T1260,520 T1860,520" fill="none" stroke="#1C3CFF" stroke-width="50" stroke-linecap="round" opacity="0.06"/>
+    <path class="wave"   d="M-50,350 Q250,180 550,350 T1150,350 T1750,350" fill="none" stroke="var(--blue)" stroke-width="80" stroke-linecap="round" opacity="0.08"/>
+    <path class="wave-2" d="M-50,520 Q320,380 640,520 T1260,520 T1860,520" fill="none" stroke="var(--blue)" stroke-width="50" stroke-linecap="round" opacity="0.06"/>
   </svg>
 
   <!-- Scattered sparkles -->
   <div class="deco-spark" style="left:8%;top:22%;width:26px;height:26px"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
   <div class="deco-spark" style="right:26%;top:30%;width:34px;height:34px;color:var(--blue);opacity:.6"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
-  <div class="deco-spark" style="left:48%;bottom:18%;width:20px;height:20px;color:#a7ff5d"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
+  <div class="deco-spark" style="left:48%;bottom:18%;width:20px;height:20px;color:var(--lime)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
 
   <div class="home-wrap">
     <div>
@@ -53,7 +53,7 @@
         <div class="ring r2"></div>
         <div class="ring"></div>
         <div class="core"></div>
-        <div class="letter">え</div>
+        <div class="letter"></div>
         <div class="chip c1">UI / UX</div>
         <div class="chip c2">Figma · Flutter</div>
         <div class="chip c3">since 2024</div>
@@ -61,9 +61,9 @@
 
         <div class="spark s1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
         <div class="spark s2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
-        <div class="spark s3" style="color:#a7ff5d"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
+        <div class="spark s3" style="color:var(--lime)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
         <div class="spark s4"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
-        <div class="spark s5" style="color:#a7ff5d"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
+        <div class="spark s5" style="color:var(--lime)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></div>
       </div>
     </div>
 
@@ -71,7 +71,7 @@
       <div class="home-avatar">
         <svg class="sparkle a" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
         <svg class="sparkle b" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
-        <div class="mark">え</div>
+        <img class="avatar-img" src="avatar.png" alt="えいでんのアイコン">
       </div>
       <div class="home-divider"></div>
       <div class="home-roles">
@@ -106,7 +106,7 @@
 
   <div class="about-grid">
     <div class="about-card">
-      <div class="photo">PROFILE PHOTO · 400 × 440</div>
+      <div class="photo"><img src="avatar.png" alt="えいでんのプロフィール写真"></div>
       <div class="tag"><span>@eiden</span><b>打越 映伝</b></div>
     </div>
     <div class="about-txt">
@@ -118,10 +118,7 @@
       </p>
       <div class="about-meta">
         <div><div class="k">NAME</div><div class="v">打越 映伝</div></div>
-        <div><div class="k">AGE</div><div class="v">19</div></div>
-        <div><div class="k">FROM</div><div class="v">和歌山県</div></div>
-        <div><div class="k">SCHOOL</div><div class="v">AIT · B2</div></div>
-        <div><div class="k">MAJOR</div><div class="v">電子情報工学</div></div>
+        <div><div class="k">GRADUATION</div><div class="v">29卒</div></div>
         <div><div class="k">CLUB</div><div class="v">システム工学研究会</div></div>
       </div>
     </div>
@@ -206,7 +203,7 @@
       <div class="eyebrow">05 · THINGS I LOVE</div>
       <h2>Likes<span class="ink">.</span></h2>
     </div>
-    <div class="sub">ものを作る時間、Figma を触る時間、珈琲、和歌山の海。人柄がじわっと出る5つ。</div>
+    <div class="sub">ものを作る時間、Figma を触る時間が好きです。</div>
   </div>
 
   <div class="likes-grid">
@@ -227,15 +224,14 @@
       <p>1つのコードで iOS / Android の両方が動く体験に感動しました。</p>
     </div>
     <div class="like wide">
-      <div class="mark">"</div>
       <div>
         <h3>身近な課題に気づくこと</h3>
         <p>普段の「ちょっと困った」をメモするクセがあります。</p>
       </div>
     </div>
-    <div class="like s"><div class="t">04</div><h3>珈琲</h3></div>
-    <div class="like s"><div class="t">05</div><h3>深夜作業</h3></div>
-    <div class="like s"><div class="t">06</div><h3>和歌山の海</h3></div>
+    <div class="like s"><div class="t">04</div><h3>ゲーム</h3></div>
+    <div class="like s"><div class="t">05</div><h3>運動</h3></div>
+    <div class="like s"><div class="t">06</div><h3>車</h3></div>
     <div class="like s"><div class="t">07</div><h3>新しいアプリ</h3></div>
   </div>
 </section>
@@ -264,7 +260,7 @@
   <div class="tw-row">
     <label>BLUE</label>
     <div class="ctl" data-group="blue">
-      <button data-val="electric" class="on">electric</button>
+      <button data-val="fluorescent" class="on">fluorescent</button>
       <button data-val="royal">royal</button>
       <button data-val="sky">sky</button>
     </div>
@@ -291,6 +287,8 @@
     </div>
   </div>
 </aside>
+
+<div class="cursor-dot" id="cursorDot"></div>
 
 <script src="main.js"></script>
 </body>
