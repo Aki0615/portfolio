@@ -151,9 +151,9 @@
   </div>
 
   <div class="works-grid">
-    <article class="work w1">
+    <article class="work w1" id="work-motteko">
       <div class="cover">
-        <div class="badge">CASE 01 / MOBILE APP</div>
+        <div class="badge">CASE 01 / MOBILE APP · 2026</div>
         <div class="label">Motteko</div>
         <div class="mock">
           <div class="bar w80"></div>
@@ -163,12 +163,100 @@
           <div class="bar w60"></div>
           <div class="chip"></div>
         </div>
+        <div class="award">🏆 サポーターズ賞 · 技育CAMP2025 Vol.19</div>
       </div>
       <div class="body">
-        <div class="meta"><b>2025</b><span>· Flutter</span><span>· UI/UX</span></div>
+        <div class="meta"><b>2026.02</b><span>· Flutter</span><span>· Firebase</span><span>· Raspberry&nbsp;Pi</span></div>
         <h3>Motteko — 忘れ物通知アプリ</h3>
-        <p>忘れたくないモノを事前に登録しておき、玄関を出た瞬間に通知が届く。「あっ、あれ持った？」を仕組みで解決するアプリ。位置トリガー × チェックリスト UX を設計・実装しました。</p>
-        <div class="chips"><span>Flutter</span><span>Figma</span><span>Geofence</span><span>iOS / Android</span></div>
+        <p>忘れたくないモノを登録しておき、忘れ物をして玄関を出るとすぐに通知が来て取りに帰れる。チーム3人で初めて挑んだハッカソンで、デザイン・フロント・発表を担当しました。</p>
+        <div class="chips"><span>Flutter</span><span>Firebase</span><span>Raspberry Pi</span><span>Figma</span><span>BLE / RFID</span></div>
+      </div>
+    </article>
+
+    <!-- ===== MOTTEKO DETAIL ===== -->
+    <article class="motteko-detail" id="motteko-detail">
+      <header class="md-head">
+        <div class="md-tag">DEEP DIVE · CASE 01</div>
+        <h2 class="md-title">Motteko<span class="dot">.</span></h2>
+        <p class="md-sub">「あっ、あれ持った？」を仕組みで解決する忘れ物通知アプリ。<br/>技育CAMP 2025 Vol.19 ハッカソンで <b>サポーターズ賞</b> を受賞しました。</p>
+      </header>
+
+      <div class="md-grid">
+        <!-- Phone mockup -->
+        <div class="md-phone">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="ps-status"><span>9:41</span><span class="dots">●●●</span></div>
+              <div class="ps-h1">こんにちは、<br/>えいでんさん 👋</div>
+              <div class="ps-card primary">
+                <div class="ps-card-h">
+                  <span class="ps-pill">今日の持ち物</span>
+                  <span class="ps-count">3 / 5</span>
+                </div>
+                <div class="ps-list">
+                  <div class="ps-item on"><i class="chk"></i><span>学生証</span></div>
+                  <div class="ps-item on"><i class="chk"></i><span>鍵</span></div>
+                  <div class="ps-item on"><i class="chk"></i><span>イヤホン</span></div>
+                  <div class="ps-item"><i class="chk"></i><span>水筒</span></div>
+                  <div class="ps-item"><i class="chk"></i><span>傘</span></div>
+                </div>
+              </div>
+              <div class="ps-card alert">
+                <div class="ps-alert-icn">!</div>
+                <div>
+                  <div class="ps-alert-t">玄関を出ました</div>
+                  <div class="ps-alert-s">水筒・傘を忘れていませんか？</div>
+                </div>
+              </div>
+              <nav class="ps-tab">
+                <span class="on">🏠</span><span>📋</span><span>🔔</span><span>👤</span>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Floating chips -->
+          <div class="float-chip c1">📡 Geofence</div>
+          <div class="float-chip c2">🔔 Push通知</div>
+          <div class="float-chip c3">✨ 即時アラート</div>
+        </div>
+
+        <!-- Right: Story blocks -->
+        <div class="md-story">
+          <section class="md-block">
+            <div class="md-num">01</div>
+            <h3>背景 — 「忘れ物」って意外に取り返しがつかない</h3>
+            <p>朝の玄関。傘を忘れた、学生証を忘れた、薬を忘れた。一度家を出てしまうと、戻る時間も体力も削られる。<br/>「自分が欲しい」「家族が欲しい」を出発点に、生活に溶け込む通知体験を作りたいと考えました。</p>
+          </section>
+
+          <section class="md-block">
+            <div class="md-num">02</div>
+            <h3>解決策 — 出た瞬間に思い出させる</h3>
+            <p>持ち物リストを事前に登録し、ジオフェンス／BLEセンサーで「玄関を出た」と検知すると、未チェックのアイテムをプッシュ通知で即座にお知らせ。<br/>振り返るだけで取りに帰れる距離で、確実に気づける UX を設計しました。</p>
+          </section>
+
+          <section class="md-block">
+            <div class="md-num">03</div>
+            <h3>担当 — Design / Front / Presentation</h3>
+            <p>Figma で UI/UX を設計し、Flutter でフロントを実装。バックエンドは上田さん、ハードウェアは牧野さんが担当。<br/>3人とも初ハッカソン、初めて触る技術ばかりで、テストや体調不良も重なりましたが、チームで分担しなんとか動くものを作り上げました。</p>
+          </section>
+
+          <section class="md-block">
+            <div class="md-num">04</div>
+            <h3>結果 — サポーターズ賞 受賞 🏆</h3>
+            <p>24チームが参加したオンラインハッカソン。アイデアと「生活に効く」プレゼンが評価され、<b>サポーターズ賞</b>をいただきました。<br/>初出場で賞をいただけたことが、今の制作への大きな自信になっています。</p>
+          </section>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="md-stats">
+        <div><div class="k">EVENT</div><div class="v">技育CAMP 2025 Vol.19</div></div>
+        <div><div class="k">DATE</div><div class="v">2026.02.08</div></div>
+        <div><div class="k">TEAM</div><div class="v">3名 / シス研1年生</div></div>
+        <div><div class="k">ROLE</div><div class="v">Design / Front / 発表</div></div>
+        <div><div class="k">STACK</div><div class="v">Flutter · Firebase · RasPi</div></div>
+        <div><div class="k">AWARD</div><div class="v" style="color:var(--blue)">🏆 サポーターズ賞</div></div>
       </div>
     </article>
 
