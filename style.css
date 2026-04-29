@@ -713,6 +713,7 @@ a.work { display: block }
 .work:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(61, 90, 255, .22) }
 
 .work .cover { height: 280px; position: relative; overflow: hidden }
+.work .cover .cover-img { width: 100%; height: 100%; object-fit: cover }
 
 .work.w1 .cover {
   background:
