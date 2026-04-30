@@ -125,10 +125,10 @@
     /* Cover image */
     .md-cover { position: relative; display: flex; justify-content: center; padding-top: 20px }
 
-    .cover-img {
-      width: 380px;
-      border-radius: 24px;
-      box-shadow: 0 30px 70px rgba(15, 20, 32, .20), 0 8px 20px rgba(15, 20, 32, .12);
+    .phone-img {
+      width: 300px;
+      border-radius: 42px;
+      box-shadow: 0 30px 70px rgba(15, 20, 32, .30), 0 8px 20px rgba(15, 20, 32, .18);
       display: block;
     }
 
@@ -282,7 +282,7 @@
       .hero { padding: 120px 20px 60px }
       .content { padding: 0 20px 60px }
       .detail-grid { grid-template-columns: 1fr; gap: 48px }
-      .cover-img { width: 100%; max-width: 380px }
+      .phone-img { width: 100%; max-width: 300px }
       .tech-grid { grid-template-columns: 1fr }
       .md-stats { grid-template-columns: repeat(2, 1fr) }
       .md-stats > div { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, .1) }
@@ -319,7 +319,7 @@
   <div class="detail-grid">
     <!-- Cover image -->
     <div class="md-cover">
-      <img class="cover-img" src="../assets/images/passly-cover.png" alt="Passly アプリ画面">
+      <img class="phone-img" src="../assets/images/passly-app.png" alt="Passly アプリ画面">
 
       <div class="float-chip c1">📡 BLE通信</div>
       <div class="float-chip c2">🔒 位置情報不要</div>
@@ -402,7 +402,6 @@
     <div class="review">
       <p class="review-body">Bluetoothを使った技術の掛け合わせがおもしろい。アーキテクチャしっかり固めてるし、大事な守りの部分も満たしている。</p>
       <div class="review-author">
-        <div class="review-avatar">田</div>
         <div>
           <div class="review-name">田中 雄登</div>
           <div class="review-role">DIP CORPORATION</div>
@@ -413,7 +412,6 @@
     <div class="review">
       <p class="review-body">あるあるな課題をすれ違い通信で解決するアイデアが面白かった。Bluetoothをバックグラウンドで持続させる技術的な難しさにも正面から向き合っていて、プライバシーへの配慮も含めて「本気でリリースしたい」という熱量がしっかり伝わってきた。UIも細部まで作り込まれていて好印象。</p>
       <div class="review-author">
-        <div class="review-avatar">松</div>
         <div>
           <div class="review-name">松田 知也</div>
           <div class="review-role">DIP CORPORATION</div>
@@ -424,7 +422,6 @@
     <div class="review">
       <p class="review-body">BLE通信をハッカソンの中で選択し実装まで落とし込んでいる点に、技術的なチャレンジの高さを感じた。個人情報を取得せずに価値を提供しようとする設計も非常に良い観点。プロダクトの完成度も高く、実際に使われるイメージがしやすい。</p>
       <div class="review-author">
-        <div class="review-avatar">目</div>
         <div>
           <div class="review-name">目黒 翔太</div>
           <div class="review-role">DMM.COM</div>
@@ -435,7 +432,6 @@
     <div class="review">
       <p class="review-body">コンセプトがよく、実際に使えたら面白い。必要な機能がまとめられている印象。全体的なデザインも統一されていて良かった。</p>
       <div class="review-author">
-        <div class="review-avatar">西</div>
         <div>
           <div class="review-name">西澤 悠貴</div>
           <div class="review-role">CYBERAGENT</div>
@@ -446,7 +442,6 @@
     <div class="review">
       <p class="review-body">位置情報を利用しないという設計にしたことで、セキュリティ面に配慮しつつバックグラウンドでの利用も可能になっている部分が設計として素晴らしい。「すれ違いを出会いに」というキャッチコピーも初見の人にも伝わる。</p>
       <div class="review-author">
-        <div class="review-avatar">竹</div>
         <div>
           <div class="review-name">竹田 暁美</div>
           <div class="review-role">SUPPORTERS</div>
@@ -456,7 +451,7 @@
   </div>
 
   <a href="https://www.figma.com/deck/BR1Pke3gdmUbgJskAP2HD6/Passly" target="_blank" rel="noopener" class="slide-link">
-    📊 プレゼンスライドを見る
+    プレゼンスライドを見る
   </a>
 
 </main>
