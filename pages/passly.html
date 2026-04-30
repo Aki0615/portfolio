@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Passly — えいでん portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #22C55E;
+      --green-deep: #16a34a;
+      --green-soft: #dcfce7;
+      --ink: #0f1420;
+      --paper: #ffffff;
+      --paper-2: #f6f7fb;
+      --line: #e1e4ea;
+      --muted: #6b7380;
+      --blue: #3D5AFF;
+    }
+
+    * { box-sizing: border-box }
+    html, body { margin: 0; padding: 0; color: var(--ink); font-family: "Noto Sans JP", "Inter", system-ui, sans-serif; background: #fff }
+    html { scroll-behavior: smooth }
+    a { color: inherit; text-decoration: none }
+    img { max-width: 100%; display: block }
+
+    /* ===== Back nav ===== */
+    .back-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 44px;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back-link {
+      display: flex; align-items: center; gap: 10px;
+      font-family: "Inter", sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--ink); transition: color .2s;
+    }
+    .back-link:hover { color: var(--green) }
+    .back-link .arrow { font-size: 18px; line-height: 1 }
+
+    .nav-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; font-weight: 700; letter-spacing: .2em;
+      color: var(--muted);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 140px 44px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+    }
+
+    .hero::before {
+      content: ""; position: absolute; right: -120px; top: -120px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 197, 94, .15), transparent 70%);
+      filter: blur(30px); pointer-events: none;
+    }
+
+    .hero::after {
+      content: ""; position: absolute; left: -100px; bottom: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 197, 94, .08), transparent 70%);
+      filter: blur(30px); pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; font-weight: 700; letter-spacing: .25em;
+      color: var(--green-deep); background: var(--green-soft);
+      padding: 6px 16px; border-radius: 20px; margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: "Inter", sans-serif; font-weight: 900;
+      font-size: clamp(80px, 12vw, 160px);
+      letter-spacing: -.04em; color: var(--green); line-height: .9; margin: 0;
+    }
+    .hero-title .dot { color: var(--ink) }
+
+    .hero-catch {
+      margin: 20px auto 0;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 20px; font-weight: 700; color: var(--ink);
+      letter-spacing: .04em;
+    }
+
+    .hero-sub {
+      margin: 16px auto 0; max-width: 680px;
+      font-size: 16px; line-height: 1.9; color: var(--muted);
+    }
+    .hero-sub b { color: var(--ink) }
+
+    /* ===== Content section ===== */
+    .content { max-width: 1280px; margin: 0 auto; padding: 0 44px 80px }
+
+    .section-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; font-weight: 700; letter-spacing: .25em;
+      color: var(--muted); margin-bottom: 32px; margin-top: 80px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label:first-child { margin-top: 0 }
+    .section-label::before { content: ""; width: 32px; height: 2px; background: var(--green); border-radius: 2px }
+
+    /* ===== Grid: cover + story ===== */
+    .detail-grid {
+      display: grid; grid-template-columns: 380px 1fr; gap: 60px;
+      align-items: start; margin-bottom: 80px;
+    }
+
+    /* Cover image */
+    .md-cover { position: relative; display: flex; justify-content: center; padding-top: 20px }
+
+    .cover-img {
+      width: 380px;
+      border-radius: 24px;
+      box-shadow: 0 30px 70px rgba(15, 20, 32, .20), 0 8px 20px rgba(15, 20, 32, .12);
+      display: block;
+    }
+
+    /* Floating chips */
+    .float-chip {
+      position: absolute; background: #fff; border-radius: 24px;
+      padding: 8px 14px; font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-weight: 700; font-size: 12px; color: var(--ink);
+      box-shadow: 0 12px 28px rgba(15, 20, 32, .16);
+      white-space: nowrap; animation: floatChip 4s ease-in-out infinite;
+    }
+    .float-chip.c1 { top: 40px; left: -20px }
+    .float-chip.c2 { top: 180px; right: -30px; animation-delay: 1.2s }
+    .float-chip.c3 { bottom: 60px; left: -10px; animation-delay: 2.4s; background: var(--green); color: #fff; box-shadow: 0 12px 28px rgba(34, 197, 94, .4) }
+    @keyframes floatChip { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+
+    /* Story blocks */
+    .md-story { display: flex; flex-direction: column; gap: 36px }
+    .md-block { position: relative; padding-left: 68px }
+
+    .md-num {
+      position: absolute; left: 0; top: 0;
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Inter", sans-serif; font-weight: 900; font-size: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .md-block h3 {
+      margin: 6px 0 12px;
+      font-family: "Noto Sans JP", "Inter", sans-serif;
+      font-weight: 800; font-size: 22px; line-height: 1.4;
+      letter-spacing: -.02em; color: var(--ink);
+    }
+
+    .md-block p {
+      margin: 0; font-size: 15px; line-height: 2;
+      color: var(--muted); text-wrap: pretty;
+    }
+    .md-block p b { color: var(--ink); font-weight: 700 }
+
+    /* ===== Tech stack ===== */
+    .tech-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .tech-card {
+      background: var(--paper-2); border-radius: 16px; padding: 24px;
+      border: 1px solid var(--line);
+    }
+
+    .tech-card .label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; font-weight: 700; letter-spacing: .2em;
+      color: var(--green-deep); margin-bottom: 12px;
+    }
+
+    .tech-card .items {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+
+    .tech-card .items span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; font-weight: 700; letter-spacing: .05em;
+      padding: 5px 12px; border-radius: 20px;
+      background: #fff; border: 1px solid var(--line); color: var(--ink);
+    }
+
+    /* ===== Stats bar ===== */
+    .md-stats {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      background: var(--ink); color: #fff;
+      border-radius: 20px; overflow: hidden;
+    }
+    .md-stats > div { padding: 22px 18px; border-right: 1px solid rgba(255, 255, 255, .1) }
+    .md-stats > div:last-child { border-right: 0 }
+    .md-stats .k { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .2em; color: rgba(255, 255, 255, .5); font-weight: 700 }
+    .md-stats .v { margin-top: 8px; font-family: "Inter", "Noto Sans JP", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -.01em }
+
+    /* ===== Reviews ===== */
+    .reviews { display: flex; flex-direction: column; gap: 20px; margin-bottom: 80px }
+
+    .review {
+      background: var(--paper-2); border-radius: 18px; padding: 28px 32px;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+
+    .review::before {
+      content: "\201C";
+      position: absolute; left: 28px; top: 8px;
+      font-family: "Inter", sans-serif; font-size: 48px; font-weight: 900;
+      color: var(--green); opacity: .25; line-height: 1;
+    }
+
+    .review-body {
+      font-size: 14.5px; line-height: 2; color: var(--ink);
+      margin-bottom: 16px; padding-left: 4px;
+    }
+
+    .review-author {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .review-avatar {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: 14px;
+      flex: none;
+    }
+
+    .review-name {
+      font-family: "Noto Sans JP", sans-serif; font-weight: 800;
+      font-size: 14px; color: var(--ink);
+    }
+
+    .review-role {
+      font-family: "JetBrains Mono", monospace; font-size: 10px;
+      color: var(--muted); letter-spacing: .1em; font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ===== Slide link ===== */
+    .slide-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green); color: #fff;
+      padding: 14px 28px; border-radius: 28px;
+      font-family: "Inter", sans-serif; font-weight: 700; font-size: 15px;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, .35);
+      transition: transform .2s, box-shadow .2s;
+      margin-bottom: 80px;
+    }
+    .slide-link:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(34, 197, 94, .45) }
+
+    /* ===== Footer ===== */
+    .page-footer {
+      background: var(--ink); color: #fff; padding: 40px 44px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      letter-spacing: .1em; color: rgba(255, 255, 255, .5);
+    }
+    .page-footer a { color: rgba(255, 255, 255, .7); transition: color .2s }
+    .page-footer a:hover { color: #fff }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .back-nav { padding: 0 20px }
+      .hero { padding: 120px 20px 60px }
+      .content { padding: 0 20px 60px }
+      .detail-grid { grid-template-columns: 1fr; gap: 48px }
+      .cover-img { width: 100%; max-width: 380px }
+      .tech-grid { grid-template-columns: 1fr }
+      .md-stats { grid-template-columns: repeat(2, 1fr) }
+      .md-stats > div { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, .1) }
+      .page-footer { padding: 30px 20px; flex-direction: column; gap: 12px; text-align: center }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="back-nav">
+  <a href="../index.html" class="back-link">
+    <span class="arrow">&larr;</span>
+    <span>Back to Portfolio</span>
+  </a>
+  <span class="nav-title">CASE 02 / PASSLY</span>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">DEEP DIVE · CASE 02</div>
+    <h1 class="hero-title">Passly<span class="dot">.</span></h1>
+    <p class="hero-catch">すれ違いを、出会いに。</p>
+    <p class="hero-sub">すれ違うだけでエンジニア同士がつながれるアプリ。<br/>SysHack 2026（2週間ハッカソン）で <b>最優秀賞</b> を受賞。現在もチームで継続開発中。</p>
+  </div>
+</section>
+
+<!-- ===== Main content ===== -->
+<main class="content">
+
+  <div class="section-label">APP OVERVIEW & STORY</div>
+
+  <div class="detail-grid">
+    <!-- Cover image -->
+    <div class="md-cover">
+      <img class="cover-img" src="../assets/images/passly-cover.png" alt="Passly アプリ画面">
+
+      <div class="float-chip c1">📡 BLE通信</div>
+      <div class="float-chip c2">🔒 位置情報不要</div>
+      <div class="float-chip c3">🤝 すれ違い検知</div>
+    </div>
+
+    <!-- Story blocks -->
+    <div class="md-story">
+      <section class="md-block">
+        <div class="md-num">01</div>
+        <h3>課題 — 話しかけたいけど、話しかけられない</h3>
+        <p>エンジニア向けカンファレンスやイベントで「気になる人がいるけど話しかけられない」という、あるあるの課題。<br/><b>位置情報を使わず</b>に、すれ違った相手と後からつながれる仕組みで解決します。</p>
+      </section>
+
+      <section class="md-block">
+        <div class="md-num">02</div>
+        <h3>解決策 — すれ違うだけでつながる</h3>
+        <p>Bluetooth Low Energy を使い、近くにいるユーザー同士を自動検知。プロフィールや一言メッセージを交換し、イベント後に振り返って繋がれる体験を設計しました。<br/><b>プライバシー配慮設計</b>で、個人情報を取得せずに価値を提供します。</p>
+      </section>
+
+      <section class="md-block">
+        <div class="md-num">03</div>
+        <h3>担当 — UI/UX Design / Frontend / Presentation</h3>
+        <p><b>Figma</b> で UI/UX を設計し、<b>Flutter</b> でフロントエンドを実装。プレゼン資料の作成も担当しました。<br/>BLE をバックグラウンドで持続させる難しい技術課題にも正面から取り組みました。</p>
+      </section>
+
+      <section class="md-block">
+        <div class="md-num">04</div>
+        <h3>結果 — 最優秀賞 受賞 🏆</h3>
+        <p>SysHack 2026 にて<b>最優秀賞</b>を受賞。アーキテクチャ設計、プライバシー配慮、UI の完成度が高く評価されました。<br/>現在もチームで継続開発を進めています。</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="section-label">TECH STACK</div>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="label">FRONTEND</div>
+      <div class="items">
+        <span>Flutter</span>
+        <span>Riverpod</span>
+        <span>Dio</span>
+        <span>BLE</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="label">BACKEND / INFRA</div>
+      <div class="items">
+        <span>Go</span>
+        <span>Echo</span>
+        <span>Render</span>
+        <span>Docker</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="label">DATABASE / DESIGN</div>
+      <div class="items">
+        <span>PostgreSQL</span>
+        <span>Firebase</span>
+        <span>Figma</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">PROJECT INFO</div>
+
+  <div class="md-stats">
+    <div><div class="k">EVENT</div><div class="v">SysHack 2026</div></div>
+    <div><div class="k">PERIOD</div><div class="v">2週間</div></div>
+    <div><div class="k">ROLE</div><div class="v">Design / Front / 発表</div></div>
+    <div><div class="k">STACK</div><div class="v">Flutter · Go · BLE</div></div>
+    <div><div class="k">AWARD</div><div class="v" style="color:var(--green)">🏆 最優秀賞</div></div>
+    <div><div class="k">STATUS</div><div class="v">継続開発中</div></div>
+  </div>
+
+  <div class="section-label">REVIEWS FROM JUDGES</div>
+
+  <div class="reviews">
+    <div class="review">
+      <p class="review-body">Bluetoothを使った技術の掛け合わせがおもしろい。アーキテクチャしっかり固めてるし、大事な守りの部分も満たしている。</p>
+      <div class="review-author">
+        <div class="review-avatar">田</div>
+        <div>
+          <div class="review-name">田中 雄登</div>
+          <div class="review-role">DIP CORPORATION</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review">
+      <p class="review-body">あるあるな課題をすれ違い通信で解決するアイデアが面白かった。Bluetoothをバックグラウンドで持続させる技術的な難しさにも正面から向き合っていて、プライバシーへの配慮も含めて「本気でリリースしたい」という熱量がしっかり伝わってきた。UIも細部まで作り込まれていて好印象。</p>
+      <div class="review-author">
+        <div class="review-avatar">松</div>
+        <div>
+          <div class="review-name">松田 知也</div>
+          <div class="review-role">DIP CORPORATION</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review">
+      <p class="review-body">BLE通信をハッカソンの中で選択し実装まで落とし込んでいる点に、技術的なチャレンジの高さを感じた。個人情報を取得せずに価値を提供しようとする設計も非常に良い観点。プロダクトの完成度も高く、実際に使われるイメージがしやすい。</p>
+      <div class="review-author">
+        <div class="review-avatar">目</div>
+        <div>
+          <div class="review-name">目黒 翔太</div>
+          <div class="review-role">DMM.COM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review">
+      <p class="review-body">コンセプトがよく、実際に使えたら面白い。必要な機能がまとめられている印象。全体的なデザインも統一されていて良かった。</p>
+      <div class="review-author">
+        <div class="review-avatar">西</div>
+        <div>
+          <div class="review-name">西澤 悠貴</div>
+          <div class="review-role">CYBERAGENT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review">
+      <p class="review-body">位置情報を利用しないという設計にしたことで、セキュリティ面に配慮しつつバックグラウンドでの利用も可能になっている部分が設計として素晴らしい。「すれ違いを出会いに」というキャッチコピーも初見の人にも伝わる。</p>
+      <div class="review-author">
+        <div class="review-avatar">竹</div>
+        <div>
+          <div class="review-name">竹田 暁美</div>
+          <div class="review-role">SUPPORTERS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.figma.com/deck/BR1Pke3gdmUbgJskAP2HD6/Passly" target="_blank" rel="noopener" class="slide-link">
+    📊 プレゼンスライドを見る
+  </a>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="page-footer">
+  <span>&copy; 2026 EIDEN / UCHIKOSHI AKITSUGU</span>
+  <a href="../index.html">&larr; Back to Portfolio</a>
+</footer>
+
+</body>
+</html>
