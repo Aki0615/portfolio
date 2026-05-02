@@ -1189,6 +1189,8 @@ footer .fin { max-width: 1400px; margin: 0 auto; display: flex; justify-content:
 footer h4 { margin: 0; font-family: "Inter", sans-serif; font-size: clamp(40px, 5vw, 72px); font-weight: 900; letter-spacing: -.03em; line-height: .95 }
 footer h4 .accent { color: var(--blue); font-family: "Caveat", cursive; font-size: 1.15em; font-weight: 700 }
 footer .right { text-align: right; font-family: "JetBrains Mono", monospace; font-size: 12px; color: rgba(255, 255, 255, .65); letter-spacing: .1em; line-height: 2 }
+footer .x-link { display: inline-flex; align-items: center; gap: 6px; color: #fff; transition: opacity .2s; margin-top: 4px }
+footer .x-link:hover { opacity: .7 }
 footer .copy { border-top: 1px solid rgba(255, 255, 255, .12); max-width: 1400px; margin: 40px auto 0; padding-top: 20px; display: flex; justify-content: space-between; font-family: "JetBrains Mono", monospace; font-size: 11px; color: rgba(255, 255, 255, .5); letter-spacing: .1em }
 
 
