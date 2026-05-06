@@ -34,16 +34,16 @@
 - Screen: 白、border-radius 30px、padding `42px 16px 14px`、内部は flex column gap 10px
 - 内部要素（上から）:
   - `.ps-status`: "9:41" / 青ドット "●●●"
-  - `.ps-h1`: "こんにちは、えいでんさん 👋" Noto Sans JP 800 18px
+  - `.ps-h1`: "こんにちは、えいでんさん" Noto Sans JP 800 18px
   - `.ps-card.primary` (Today list): ブルーグラデ `135deg #1C3CFF→#3653ff`、内部に header (pill "今日の持ち物" + count "3 / 5") と list (5 items, on=学生証/鍵/イヤホン)。check icon は丸ボーダー、on で白塗り＆青チェックマーク
   - `.ps-card.alert`: `bg #fff8e6 border 1.5px #ffd966`、`!` アイコン 28px 円 `#ff9c2a`、タイトル "玄関を出ました"、サブ "水筒・傘を忘れていませんか？"
-  - `.ps-tab`: 4 emoji (🏠📋🔔👤)、`opacity .35`、on で `1` + `scale(1.1)`、上ボーダー `1px var(--line)`
+  - `.ps-tab`: 4 labels (Home/List/Alert/Profile)、`opacity .35`、on で `1` + `scale(1.1)`、上ボーダー `1px var(--line)`
 
 ### 3. Floating Chips (`.float-chip`)
 - 3つのピル型 chip が phone 横に絶対配置 + `floatChip` 4s 上下バウンスアニメ（`translateY(0)→-8px`）
-- c1: 📡 Geofence (top:60 left:-30) 白
-- c2: 🔔 Push通知 (top:200 right:-40) 白、delay 1.2s
-- c3: ✨ 即時アラート (bottom:80 left:-10) ブルー塗り、delay 2.4s
+- c1: Geofence (top:60 left:-30) 白
+- c2: Push通知 (top:200 right:-40) 白、delay 1.2s
+- c3: 即時アラート (bottom:80 left:-10) ブルー塗り、delay 2.4s
 - Padding `8px 14px`、border-radius 24px、shadow `0 12px 28px rgba(15,20,32,.16)`
 
 ### 4. Story Blocks (`.md-block` × 4)
@@ -56,7 +56,7 @@
   - 01 背景 — 「忘れ物」って意外に取り返しがつかない
   - 02 解決策 — 出た瞬間に思い出させる
   - 03 担当 — Design / Front / Presentation
-  - 04 結果 — サポーターズ賞 受賞 🏆
+  - 04 結果 — サポーターズ賞 受賞
 
 ### 5. Stats Bar (`.md-stats`)
 - `display:grid; grid-template-columns:repeat(6,1fr)`、`background:#0f1420`、`color:#fff`、border-radius 20px、overflow hidden
@@ -71,7 +71,7 @@
   | TEAM | 3名 / シス研1年生 |
   | ROLE | Design / Front / 発表 |
   | STACK | Flutter · Firebase · RasPi |
-  | AWARD | 🏆 サポーターズ賞 *(value 色 = `#1C3CFF`)* |
+  | AWARD | サポーターズ賞 *(value 色 = `#1C3CFF`)* |
 
 ## Interactions & Behavior
 - **Floating chips**: `floatChip 4s ease-in-out infinite` — `translateY(0) ↔ -8px`、3つを 0 / 1.2s / 2.4s でずらす
@@ -105,7 +105,7 @@
 - Type scale: title `clamp(72px,9vw,128px)`、h3 22px、body 14.5–15px、mono 10–11px
 
 ## Assets
-画像は使用せず、すべて CSS / 絵文字（🏠 📋 🔔 👤 📡 ✨ 🏆 👋）で構成。プロダクションでは絵文字の代わりに Lucide / Material Icons などへ置き換えを検討してください。
+画像は使用せず、すべて CSS / テキストラベルで構成。プロダクションでは Lucide / Material Icons などへ置き換えを検討してください。
 
 ## Files
 - `motteko_screen.html` — 単独動作するデザインリファレンス（このスクリーンだけを表示）
