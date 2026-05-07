@@ -226,6 +226,40 @@ section.panel {
 }
 
 
+/* ============ Section wave dividers ============ */
+#skills::before,
+#works::before,
+#likes::before,
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 3;
+  pointer-events: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#skills::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 150' preserveAspectRatio='none'%3E%3Cpath d='M0,0 H1440 V75 C1080,150 360,0 0,75 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+
+#works::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 150' preserveAspectRatio='none'%3E%3Cpath d='M0,0 H1440 V75 C1080,150 360,0 0,75 Z' fill='%23f6f7fb'/%3E%3C/svg%3E");
+}
+
+#likes::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 150' preserveAspectRatio='none'%3E%3Cpath d='M0,0 H1440 V75 C1080,150 360,0 0,75 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+
+footer::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 150' preserveAspectRatio='none'%3E%3Cpath d='M0,0 H1440 V75 C1080,150 360,0 0,75 Z' fill='%23f6f7fb'/%3E%3C/svg%3E");
+}
+
+
 /* ============ HOME ============ */
 #home { background: #fff }
 
@@ -618,17 +652,11 @@ section.panel {
 
 
 /* ============ SKILLS ============ */
-#skills { background: var(--paper-2); position: relative }
-
-#skills::before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  width: 220px;
-  height: 220px;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='none' stroke='%233D5AFF' stroke-width='0.5' stroke-dasharray='2 3' opacity='0.4'/></svg>") no-repeat center/contain;
-  opacity: .5;
+#skills {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='none' stroke='%233D5AFF' stroke-width='0.5' stroke-dasharray='2 3' opacity='0.2'/></svg>") no-repeat 40px 40px / 220px 220px,
+    var(--paper-2);
+  position: relative;
 }
 
 .skill-grid {
@@ -1180,7 +1208,7 @@ a.work { display: block }
 footer {
   background: var(--ink);
   color: #fff;
-  padding: 60px 44px 30px;
+  padding: 100px 44px 30px;
   position: relative;
   overflow: hidden;
 }
