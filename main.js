@@ -15,29 +15,29 @@ let state = { ...TWEAK_DEFAULTS };
 
 
 /* ================ SKILL GRID ================ */
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
 const SKILLS = [
-  { name: 'Figma',   jp: 'UI / UX デザイン',  lvl: 90, flag: true,  tag: 'Design'    },
-  { name: 'Flutter', jp: 'モバイルアプリ開発', lvl: 85, flag: false, tag: 'Framework' },
-  { name: 'HTML',    jp: 'マークアップ',       lvl: 80, flag: false, tag: 'Markup'    },
-  { name: 'CSS',     jp: 'スタイリング',       lvl: 80, flag: false, tag: 'Style'     },
-  { name: 'Python',  jp: 'スクリプト / AI',   lvl: 70, flag: false, tag: 'Language'  },
-  { name: 'C',       jp: '基礎科目',           lvl: 60, flag: false, tag: 'Language'  },
-  { name: 'Git',     jp: 'バージョン管理',     lvl: 75, flag: false, tag: 'Tool'      },
-  { name: 'GitHub',  jp: 'チーム開発',         lvl: 75, flag: false, tag: 'Platform'  },
+  { name: 'Figma',      jp: 'UIデザイン',                    lvl: 90, icon: 'figma/figma-original.svg' },
+  { name: 'Flutter',    jp: 'モバイルアプリ開発',            lvl: 85, icon: 'flutter/flutter-original.svg' },
+  { name: 'Dart',       jp: 'プログラミング言語',            lvl: 80, icon: 'dart/dart-original.svg' },
+  { name: 'HTML / CSS', jp: 'マークアップ / スタイリング',    lvl: 80, icon: 'html5/html5-original.svg' },
+  { name: 'Python',     jp: 'スクリプト / AI',               lvl: 70, icon: 'python/python-original.svg' },
+  { name: 'C',          jp: 'プログラミング言語',            lvl: 60, icon: 'c/c-original.svg' },
+  { name: 'Git',        jp: 'バージョン管理',                lvl: 70, icon: 'git/git-original.svg' },
+  { name: 'GitHub',     jp: 'コード管理 / コラボレーション',  lvl: 75, icon: 'github/github-original.svg' },
 ];
 
-document.getElementById('skillGrid').innerHTML = SKILLS.map((s, i) => `
-  <div class="skill ${s.flag ? 'flag' : ''}">
-    <span class="num">${String(i + 1).padStart(2, '0')} / 08</span>
-    <div>
-      <div class="name">${s.name}</div>
-      <div class="jp">${s.jp}</div>
+document.getElementById('skillGrid').innerHTML = SKILLS.map(s => `
+  <div class="skill">
+    <div class="skill-top">
+      <img class="skill-icon" src="${DEVICON}${s.icon}" alt="${s.name}" width="40" height="40">
+      <div class="skill-info">
+        <div class="name">${s.name}</div>
+        <div class="jp">${s.jp}</div>
+      </div>
+      <div class="skill-lvl">Lv. ${s.lvl}</div>
     </div>
-    <div>
-      <div class="bar"><i data-lvl="${s.lvl}"></i></div>
-      <div class="tag">${s.tag} · ${s.lvl}</div>
-    </div>
-    <div class="glyph">${s.name[0]}</div>
+    <div class="bar"><i data-lvl="${s.lvl}"></i></div>
   </div>
 `).join('');
 
