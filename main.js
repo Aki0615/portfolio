@@ -17,35 +17,28 @@ let state = { ...TWEAK_DEFAULTS };
 /* ================ SKILL GRID ================ */
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
 const SKILLS = [
-  { name: 'Figma',      jp: 'UIデザイン',                    lvl: 90, icon: 'figma/figma-original.svg' },
-  { name: 'Flutter',    jp: 'モバイルアプリ開発',            lvl: 85, icon: 'flutter/flutter-original.svg' },
-  { name: 'Dart',       jp: 'プログラミング言語',            lvl: 80, icon: 'dart/dart-original.svg' },
-  { name: 'HTML / CSS', jp: 'マークアップ / スタイリング',    lvl: 80, icon: 'html5/html5-original.svg' },
-  { name: 'Python',     jp: 'スクリプト / AI',               lvl: 70, icon: 'python/python-original.svg' },
-  { name: 'C',          jp: 'プログラミング言語',            lvl: 60, icon: 'c/c-original.svg' },
-  { name: 'Git',        jp: 'バージョン管理',                lvl: 70, icon: 'git/git-original.svg' },
-  { name: 'GitHub',     jp: 'コード管理 / コラボレーション',  lvl: 75, icon: 'github/github-original.svg' },
+  { initial: 'f', rest: 'igma',   icon: 'figma/figma-original.svg' },
+  { initial: 'f', rest: 'lutter', icon: 'flutter/flutter-original.svg' },
+  { initial: 'H', rest: 'tml',    icon: 'html5/html5-original.svg' },
+  { initial: 'C', rest: 'ss',     icon: 'css3/css3-original.svg' },
+  { initial: 'p', rest: 'ython',  icon: 'python/python-original.svg' },
+  { initial: 'C', rest: '',       icon: 'c/c-original.svg' },
+  { initial: 'G', rest: 'it',     icon: 'git/git-original.svg' },
+  { initial: 'G', rest: 'itHub',  icon: 'github/github-original.svg' },
 ];
 
 document.getElementById('skillGrid').innerHTML = SKILLS.map(s => `
-  <div class="skill">
-    <div class="skill-top">
-      <img class="skill-icon" src="${DEVICON}${s.icon}" alt="${s.name}" width="40" height="40">
-      <div class="skill-info">
-        <div class="name">${s.name}</div>
-        <div class="jp">${s.jp}</div>
-      </div>
-      <div class="skill-lvl">Lv. ${s.lvl}</div>
-    </div>
-    <div class="bar"><i data-lvl="${s.lvl}"></i></div>
+  <div class="skill-card">
+    <div class="card-overlay"></div>
+    <p class="card-name"><span class="card-initial">${s.initial}</span>${s.rest}</p>
+    <img class="card-icon" src="${DEVICON}${s.icon}" alt="${s.initial}${s.rest}" width="83" height="83">
+    <div class="card-shine"></div>
   </div>
 `).join('');
 
 
 /* ================ Scroll-spy + "here" chip ================ */
 const SECTIONS  = ['home', 'about', 'skills', 'works', 'likes'];
-const SEC_LABEL = { home: '/HOME', about: '/ABOUT', skills: '/SKILLS', works: '/WORKS', likes: '/LIKES' };
-const hereChip  = document.getElementById('hereChip');
 const navLinks  = document.querySelectorAll('.nav a');
 
 navLinks.forEach(a => {
@@ -64,16 +57,7 @@ function updateSpy() {
     if (el && el.offsetTop <= y) cur = id;
   }
 
-  hereChip.innerHTML = `今<span class="cur">${SEC_LABEL[cur]}</span>にいるよ`;
   navLinks.forEach(a => a.classList.toggle('on', a.dataset.sec === cur));
-
-  // Animate skill bars when scrolled into view
-  const sk = document.getElementById('skills');
-  if (sk && sk.getBoundingClientRect().top < window.innerHeight * 0.7) {
-    document.querySelectorAll('.skill .bar i').forEach(i => {
-      if (!i.style.width) i.style.width = i.dataset.lvl + '%';
-    });
-  }
 }
 
 window.addEventListener('scroll', updateSpy, { passive: true });
@@ -95,7 +79,7 @@ if (!isTouch && !reducedMotion) {
     requestAnimationFrame(moveDot);
   })();
 
-  const hoverTargets = 'a, button, .work, .skill, .like';
+  const hoverTargets = 'a, button, .work, .skill-card, .like';
   document.addEventListener('mouseover', e => {
     if (e.target.closest(hoverTargets)) dot.classList.add('hover');
   });
@@ -124,13 +108,6 @@ function applyState() {
   const BLUES = { fluorescent: '#3D5AFF', royal: '#1C3CFF', sky: '#0EA5E9' };
 
   document.documentElement.style.setProperty('--blue', BLUES[state.blue] || '#3D5AFF');
-  document.querySelector('.home-bg').style.display = state.waves === 'off' ? 'none' : 'block';
-  document.querySelectorAll('.spark, .deco-spark, .home-avatar .sparkle').forEach(s => {
-    s.style.display = state.sparks === 'off' ? 'none' : '';
-  });
-
-  const letter = state.mascot === 'p' ? 'p' : 'え';
-  document.querySelector('.mascot .letter').textContent = letter;
 
   document.querySelectorAll('.tweaks .ctl').forEach(ctl => {
     const key = ctl.dataset.group;

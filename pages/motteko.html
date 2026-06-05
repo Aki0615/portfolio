@@ -114,14 +114,25 @@
     }
 
     /* Phone mockup */
-    .md-phone { position: relative; display: flex; justify-content: center; padding-top: 20px }
+    .md-phone {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 18px;
+      padding-top: 20px;
+    }
 
     .phone-img {
-      width: 300px;
-      border-radius: 42px;
-      box-shadow: 0 30px 70px rgba(15, 20, 32, .30), 0 8px 20px rgba(15, 20, 32, .18);
+      width: 175px;
+      border-radius: 28px;
+      box-shadow: 0 22px 50px rgba(15, 20, 32, .22), 0 6px 14px rgba(15, 20, 32, .14);
       display: block;
+      background: #fff;
     }
+
+    .phone-img.welcome { transform: rotate(-3deg); margin-top: 14px }
+    .phone-img.home    { transform: rotate(3deg) }
 
     /* Floating chips */
     .float-chip {
@@ -173,6 +184,132 @@
     .md-stats .k { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .2em; color: rgba(255, 255, 255, .5); font-weight: 700 }
     .md-stats .v { margin-top: 8px; font-family: "Inter", "Noto Sans JP", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -.01em }
 
+    /* ===== Tech stack table ===== */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 80px;
+    }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      background: #fff;
+      align-items: center;
+    }
+    .stack-row .area {
+      padding: 18px 22px;
+      background: var(--accent-soft);
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--accent-deep);
+      letter-spacing: -.01em;
+    }
+    .stack-row .tech {
+      padding: 18px 22px;
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* ===== Screens chips ===== */
+    .screens-group {
+      margin-bottom: 28px;
+    }
+    .screens-group:last-child { margin-bottom: 0 }
+    .screens-group h4 {
+      margin: 0 0 12px;
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+    .screens-group h4 .count {
+      margin-left: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: .1em;
+      vertical-align: 1px;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-row span {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      background: #fff;
+    }
+    .screens-wrap {
+      background: var(--paper-2);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 80px;
+    }
+
+    /* ===== Highlight cards ===== */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .highlight-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 26px;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .highlight-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(249, 115, 22, .12);
+      border-color: rgba(249, 115, 22, .3);
+    }
+    .highlight-card .label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      color: var(--accent-deep);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .highlight-card h4 {
+      margin: 0 0 10px;
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .highlight-card p {
+      margin: 0;
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    .highlight-card p b { color: var(--ink); font-weight: 700 }
+
     /* ===== Slide link ===== */
     .slide-link {
       display: inline-flex; align-items: center; gap: 10px;
@@ -203,6 +340,10 @@
       .detail-grid { grid-template-columns: 1fr; gap: 48px }
       .md-stats { grid-template-columns: repeat(2, 1fr) }
       .md-stats > div { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, .1) }
+      .stack-row { grid-template-columns: 120px 1fr }
+      .stack-row .area, .stack-row .tech { padding: 14px 16px; font-size: 12.5px }
+      .highlight-grid { grid-template-columns: 1fr }
+      .screens-wrap { padding: 22px }
       .page-footer { padding: 30px 20px; flex-direction: column; gap: 12px; text-align: center }
     }
   </style>
@@ -223,7 +364,7 @@
   <div class="hero-inner">
     <div class="hero-tag">DEEP DIVE · CASE 01</div>
     <h1 class="hero-title">Motteko<span class="dot">.</span></h1>
-    <p class="hero-sub">「あっ、あれ持った？」を仕組みで解決する忘れ物通知アプリ。<br/>技育CAMP 2025 Vol.19 ハッカソンで <b>サポーターズ賞</b> を受賞しました。</p>
+    <p class="hero-sub">玄関先の <b>M5Stack</b> が <b>AI画像認識</b> で持ち物をチェックし、忘れ物があればスマホに通知する IoT サービス。<br/>「忘れ物を減らす。毎日の持ち物を、もっと自然に。」をコンセプトに、ハードウェア × モバイル × クラウドを統合したプロダクトとして、<b>技育博 2026</b> で <b>carta賞</b> を受賞しました。</p>
   </div>
 </section>
 
@@ -235,50 +376,180 @@
   <div class="detail-grid">
     <!-- Phone mockup -->
     <div class="md-phone">
-      <img class="phone-img" src="../assets/images/motteko-app.png" alt="Motteko アプリ画面">
+      <img class="phone-img welcome" src="../assets/images/motteko-welcome.png" alt="Motteko ウェルカム画面">
+      <img class="phone-img home" src="../assets/images/motteko-home.png" alt="Motteko ホーム画面">
 
-      <div class="float-chip c1">Geofence</div>
-      <div class="float-chip c2">Push通知</div>
-      <div class="float-chip c3">即時アラート</div>
+      <div class="float-chip c1">AI画像認識</div>
+      <div class="float-chip c2">FCM Push</div>
+      <div class="float-chip c3">BLE / M5Stack</div>
     </div>
 
     <!-- Story blocks -->
     <div class="md-story">
       <section class="md-block">
         <div class="md-num">01</div>
-        <h3>背景 — 「忘れ物」って意外に取り返しがつかない</h3>
-        <p>朝の玄関。傘を忘れた、学生証を忘れた、薬を忘れた。一度家を出てしまうと、戻る時間も体力も削られる。<br/>「自分が欲しい」「家族が欲しい」を出発点に、生活に溶け込む通知体験を作りたいと考えました。</p>
+        <h3>背景 — 「忘れ物を減らす」を仕組みで</h3>
+        <p>朝の玄関。傘・学生証・薬。一度家を出ると戻る時間も体力も削られる。<br/>「自分が欲しい」を出発点に、技育CAMPで作った初代Motteko を <b>ハードウェア × モバイル × クラウド</b> の IoT サービスへと進化させました。</p>
       </section>
 
       <section class="md-block">
         <div class="md-num">02</div>
-        <h3>解決策 — 出た瞬間に思い出させる</h3>
-        <p>持ち物リストを事前に登録し、ジオフェンス／BLEセンサーで「玄関を出た」と検知すると、未チェックのアイテムをプッシュ通知で即座にお知らせ。<br/>振り返るだけで取りに帰れる距離で、確実に気づける UX を設計しました。</p>
+        <h3>解決策 — 玄関のM5Stackが、出る前にチェック</h3>
+        <p>事前に登録した持ち物を、玄関先に設置した <b>M5Stack</b> が <b>AI画像認識</b> でスキャン。足りないものがあれば <b>Firebase Cloud Messaging</b> 経由でスマホにプッシュ通知が届く仕組みです。<br/>「自分で確認する」ではなく「家が教えてくれる」体験で、毎日の持ち物を自然にチェックできます。</p>
       </section>
 
       <section class="md-block">
         <div class="md-num">03</div>
-        <h3>担当 — Design / Front / Presentation</h3>
-        <p>Figma で UI/UX を設計し、Flutter でフロントを実装。バックエンドは上田さん、ハードウェアは牧野さんが担当。<br/>3人とも初ハッカソン、初めて触る技術ばかりで、テストや体調不良も重なりましたが、チームで分担しなんとか動くものを作り上げました。</p>
+        <h3>担当 — Front-end / UI Design（チーム Kotex）</h3>
+        <p>Figma で UI/UX を設計し、Flutter でフロントを実装。<b>全17画面</b> を一人で実装担当。BLEによる Wi-Fi プロビジョニング、フローティング型ナビなど、ネイティブアプリ水準の体験設計をフロントから推進しました。</p>
       </section>
 
       <section class="md-block">
         <div class="md-num">04</div>
-        <h3>結果 — サポーターズ賞 受賞</h3>
-        <p>24チームが参加したオンラインハッカソン。アイデアと「生活に効く」プレゼンが評価され、<b>サポーターズ賞</b>をいただきました。<br/>初出場で賞をいただけたことが、今の制作への大きな自信になっています。</p>
+        <h3>結果 — 技育博 2026 で carta賞 を受賞</h3>
+        <p>全国の学生エンジニアが集まる <b>技育博 2026</b> に出展。技育CAMP 時代からの改良を重ねた IoT プロダクトとしての完成度を評価いただき、<b>carta賞</b> を受賞しました。</p>
       </section>
     </div>
   </div>
 
+  <div class="section-label">TECH STACK</div>
+
+  <div class="stack-grid">
+    <div class="stack-row"><div class="area">フロントエンド</div><div class="tech">Flutter / Dart</div></div>
+    <div class="stack-row"><div class="area">状態管理</div><div class="tech">Provider + ChangeNotifier</div></div>
+    <div class="stack-row"><div class="area">ルーティング</div><div class="tech">go_router (ShellRoute)</div></div>
+    <div class="stack-row"><div class="area">認証 / DB</div><div class="tech">Firebase Auth / Cloud Firestore</div></div>
+    <div class="stack-row"><div class="area">プッシュ通知</div><div class="tech">Firebase Cloud Messaging + flutter_local_notifications</div></div>
+    <div class="stack-row"><div class="area">ストレージ</div><div class="tech">Firebase Storage</div></div>
+    <div class="stack-row"><div class="area">IoT 通信</div><div class="tech">flutter_blue_plus (BLE で M5Stack に Wi-Fi 設定を送信)</div></div>
+    <div class="stack-row"><div class="area">ハードウェア</div><div class="tech">M5Stack</div></div>
+    <div class="stack-row"><div class="area">通知バックエンド</div><div class="tech">Python</div></div>
+    <div class="stack-row"><div class="area">デザイン</div><div class="tech">Figma</div></div>
+  </div>
+
+
+  <div class="section-label">SCREENS · 全17画面</div>
+
+  <div class="screens-wrap">
+    <div class="screens-group">
+      <h4>オンボーディング<span class="count">3</span></h4>
+      <div class="chip-row">
+        <span>ウェルカム</span>
+        <span>新規登録</span>
+        <span>ログイン</span>
+      </div>
+    </div>
+    <div class="screens-group">
+      <h4>メイン<span class="count">5</span></h4>
+      <div class="chip-row">
+        <span>ホーム（連続記録ステータス）</span>
+        <span>持ち物一覧</span>
+        <span>カメラ</span>
+        <span>カレンダー（ストリーク可視化）</span>
+        <span>通知履歴</span>
+      </div>
+    </div>
+    <div class="screens-group">
+      <h4>デバイスセットアップ<span class="count">4</span></h4>
+      <div class="chip-row">
+        <span>Wi-Fi選択</span>
+        <span>パスワード入力</span>
+        <span>Bluetoothペアリング</span>
+        <span>デバイスID入力</span>
+      </div>
+    </div>
+    <div class="screens-group">
+      <h4>設定<span class="count">3</span></h4>
+      <div class="chip-row">
+        <span>通知設定</span>
+        <span>プライバシー設定</span>
+        <span>利用規約</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-label">ENGINEERING HIGHLIGHTS</div>
+
+  <div class="highlight-grid">
+    <div class="highlight-card">
+      <div class="label">CROSS-PLATFORM</div>
+      <h4>Flutter でワンソース開発</h4>
+      <p>iOS / Android を <b>ワンソース</b> で実装。限られた開発期間でクロスプラットフォーム対応を実現しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">NAVIGATION</div>
+      <h4>go_router の ShellRoute</h4>
+      <p>フローティング型ボトムナビを画面遷移しても常駐させ、<b>ネイティブアプリ並みのUX</b> を確保しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">STATE</div>
+      <h4>Provider + ChangeNotifier</h4>
+      <p>学習コストと拡張性のバランスを取り、<b>小〜中規模チーム開発</b> に最適化された状態管理を採用しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">BACKEND</div>
+      <h4>Firebase に一本化</h4>
+      <p>Auth / Firestore / FCM / Storage を統合。バックエンド構築コストを削減し、<b>フロント体験</b> に集中できる構成にしました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">IoT</div>
+      <h4>BLE で Wi-Fi プロビジョニング</h4>
+      <p>アプリから <b>M5Stack の Wi-Fi 設定を完結</b> できる UX を設計。ハードのセットアップをアプリだけで終わらせます。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">NOTIFICATION</div>
+      <h4>NotificationService のシングルトン化</h4>
+      <p>FCM とローカル通知を一元管理。<b>バックグラウンド配信</b> も含めて堅牢にハンドリングしました。</p>
+    </div>
+  </div>
+
+
+  <div class="section-label">DESIGN HIGHLIGHTS</div>
+
+  <div class="highlight-grid">
+    <div class="highlight-card">
+      <div class="label">BRANDING</div>
+      <h4>「身軽になる」を色とかたちで</h4>
+      <p>暖かい <b>オレンジ (#FF7B00)</b> と丸みのあるあしらいで、「持ち物を減らす＝身軽になる」世界観を表現しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">TYPOGRAPHY</div>
+      <h4>Zen Maru Gothic で統一</h4>
+      <p>柔らかく親しみやすい印象を全画面で維持。<b>毎日触れるアプリ</b> としての温度感を意識しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">MOTIF</div>
+      <h4>四隅のクリーム & オレンジの円</h4>
+      <p>全画面で同じ装飾モチーフを配置し、<b>世界観の一貫性</b> を保ちました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">NAVIGATION</div>
+      <h4>浮遊するピル型のフローティングナビ</h4>
+      <p>近未来感と <b>アクセシビリティ</b> を両立。指の届きやすい位置にメインアクションを配置しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">DATA-VIZ</div>
+      <h4>連続記録のストリーク表示</h4>
+      <p>カレンダー画面で「忘れなかった日」を <b>直感的に把握</b> できる可視化を設計しました。</p>
+    </div>
+    <div class="highlight-card">
+      <div class="label">RESPONSIVE</div>
+      <h4>iPhone SE 〜 Android タブレットまで</h4>
+      <p>FittedBox / Expanded を活用し、<b>幅広い端末</b> でオーバーフローなく表示できるレイアウトに。</p>
+    </div>
+  </div>
+
+
   <div class="section-label">PROJECT INFO</div>
 
   <div class="md-stats">
-    <div><div class="k">EVENT</div><div class="v">技育CAMP 2025 Vol.19</div></div>
-    <div><div class="k">DATE</div><div class="v">2026.02.08</div></div>
-    <div><div class="k">TEAM</div><div class="v">3名 / シス研1年生</div></div>
-    <div><div class="k">ROLE</div><div class="v">Design / Front / 発表</div></div>
-    <div><div class="k">STACK</div><div class="v">Flutter · Firebase · RasPi</div></div>
-    <div><div class="k">AWARD</div><div class="v" style="color:var(--accent)">サポーターズ賞</div></div>
+    <div><div class="k">EVENT</div><div class="v">技育博 2026</div></div>
+    <div><div class="k">TEAM</div><div class="v">Kotex</div></div>
+    <div><div class="k">ROLE</div><div class="v">Front-end / UI Design</div></div>
+    <div><div class="k">SCREENS</div><div class="v">全17画面</div></div>
+    <div><div class="k">STACK</div><div class="v">Flutter · Firebase · M5Stack</div></div>
+    <div><div class="k">AWARD</div><div class="v" style="color:var(--accent)">carta賞</div></div>
   </div>
 
   <a href="https://www.figma.com/proto/BZMUtXE0FA8NLO8KDePUpT/Motteko?node-id=229-3574&t=EoFbOY7aZM6XFxdT-1" target="_blank" rel="noopener" class="slide-link">
