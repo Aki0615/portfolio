@@ -175,7 +175,7 @@
 
     /* ===== Stats bar ===== */
     .md-stats {
-      display: grid; grid-template-columns: repeat(6, 1fr);
+      display: grid; grid-template-columns: repeat(5, 1fr);
       background: #1e2433; color: #fff;
       border-radius: 20px; overflow: hidden;
     }
@@ -310,6 +310,26 @@
     }
     .highlight-card p b { color: var(--ink); font-weight: 700 }
 
+    /* ===== Inline event link ===== */
+    .event-link {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: rgba(249, 115, 22, .45);
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1.5px;
+      transition: color .2s, text-decoration-color .2s;
+    }
+    .event-link:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+    .md-stats .event-link {
+      text-decoration-color: rgba(249, 115, 22, .8);
+    }
+    .md-stats .event-link:hover {
+      color: var(--accent);
+    }
+
     /* ===== Slide link ===== */
     .slide-link {
       display: inline-flex; align-items: center; gap: 10px;
@@ -364,7 +384,7 @@
   <div class="hero-inner">
     <div class="hero-tag">DEEP DIVE · CASE 01</div>
     <h1 class="hero-title">Motteko<span class="dot">.</span></h1>
-    <p class="hero-sub">玄関先の <b>M5Stack</b> が <b>AI画像認識</b> で持ち物をチェックし、忘れ物があればスマホに通知する IoT サービス。<br/>「忘れ物を減らす。毎日の持ち物を、もっと自然に。」をコンセプトに、ハードウェア × モバイル × クラウドを統合したプロダクトとして、<b>技育博 2026</b> で <b>carta賞</b> を受賞しました。</p>
+    <p class="hero-sub">玄関先の <b>M5Stack</b> が <b>AI画像認識</b> で持ち物をチェックし、忘れ物があればスマホに通知する IoT サービス。<br/>「忘れ物を減らす。毎日の持ち物を、もっと自然に。」をコンセプトに、ハードウェア × モバイル × クラウドを統合したプロダクトとして、<a href="https://x.com/geek_pjt/status/2020365761181806771?s=20" target="_blank" rel="noopener" class="event-link"><b>技育CAMP 2025 vol.19</b></a> でサポーターズ賞を<a href="https://x.com/geek_pjt/status/2060677261968465991?s=20" target="_blank" rel="noopener" class="event-link"><b>技育博 2026 vol.1</b></a> で <b>CARTA賞</b> を受賞しました。</p>
   </div>
 </section>
 
@@ -389,7 +409,7 @@
       <section class="md-block">
         <div class="md-num">01</div>
         <h3>背景 — 「忘れ物を減らす」を仕組みで</h3>
-        <p>朝の玄関。傘・学生証・薬。一度家を出ると戻る時間も体力も削られる。<br/>「自分が欲しい」を出発点に、技育CAMPで作った初代Motteko を <b>ハードウェア × モバイル × クラウド</b> の IoT サービスへと進化させました。</p>
+        <p>朝の玄関。傘・学生証・薬。一度家を出ると戻る時間も体力も削られる。<br/>「自分が欲しい」を出発点に、<a href="https://x.com/geek_pjt/status/2020365761181806771?s=20" target="_blank" rel="noopener" class="event-link">技育CAMP</a>で作った初代Motteko を <b>ハードウェア × モバイル × クラウド</b> の IoT サービスへと進化させました。</p>
       </section>
 
       <section class="md-block">
@@ -406,8 +426,8 @@
 
       <section class="md-block">
         <div class="md-num">04</div>
-        <h3>結果 — 技育博 2026 で carta賞 を受賞</h3>
-        <p>全国の学生エンジニアが集まる <b>技育博 2026</b> に出展。技育CAMP 時代からの改良を重ねた IoT プロダクトとしての完成度を評価いただき、<b>carta賞</b> を受賞しました。</p>
+        <h3>結果 — 技育博 2026 で CARTA賞 を受賞</h3>
+        <p>全国の学生エンジニアが集まる <a href="https://x.com/geek_pjt/status/2060677261968465991?s=20" target="_blank" rel="noopener" class="event-link"><b>技育博 2026</b></a> に出展。<a href="https://x.com/geek_pjt/status/2020365761181806771?s=20" target="_blank" rel="noopener" class="event-link">技育CAMP</a> 時代からの改良を重ねた IoT プロダクトとしての完成度を評価いただき、<b>CARTA賞</b> を受賞しました。</p>
       </section>
     </div>
   </div>
@@ -416,56 +436,7 @@
 
   <div class="stack-grid">
     <div class="stack-row"><div class="area">フロントエンド</div><div class="tech">Flutter / Dart</div></div>
-    <div class="stack-row"><div class="area">状態管理</div><div class="tech">Provider + ChangeNotifier</div></div>
-    <div class="stack-row"><div class="area">ルーティング</div><div class="tech">go_router (ShellRoute)</div></div>
-    <div class="stack-row"><div class="area">認証 / DB</div><div class="tech">Firebase Auth / Cloud Firestore</div></div>
-    <div class="stack-row"><div class="area">プッシュ通知</div><div class="tech">Firebase Cloud Messaging + flutter_local_notifications</div></div>
-    <div class="stack-row"><div class="area">ストレージ</div><div class="tech">Firebase Storage</div></div>
-    <div class="stack-row"><div class="area">IoT 通信</div><div class="tech">flutter_blue_plus (BLE で M5Stack に Wi-Fi 設定を送信)</div></div>
-    <div class="stack-row"><div class="area">ハードウェア</div><div class="tech">M5Stack</div></div>
-    <div class="stack-row"><div class="area">通知バックエンド</div><div class="tech">Python</div></div>
     <div class="stack-row"><div class="area">デザイン</div><div class="tech">Figma</div></div>
-  </div>
-
-
-  <div class="section-label">SCREENS · 全17画面</div>
-
-  <div class="screens-wrap">
-    <div class="screens-group">
-      <h4>オンボーディング<span class="count">3</span></h4>
-      <div class="chip-row">
-        <span>ウェルカム</span>
-        <span>新規登録</span>
-        <span>ログイン</span>
-      </div>
-    </div>
-    <div class="screens-group">
-      <h4>メイン<span class="count">5</span></h4>
-      <div class="chip-row">
-        <span>ホーム（連続記録ステータス）</span>
-        <span>持ち物一覧</span>
-        <span>カメラ</span>
-        <span>カレンダー（ストリーク可視化）</span>
-        <span>通知履歴</span>
-      </div>
-    </div>
-    <div class="screens-group">
-      <h4>デバイスセットアップ<span class="count">4</span></h4>
-      <div class="chip-row">
-        <span>Wi-Fi選択</span>
-        <span>パスワード入力</span>
-        <span>Bluetoothペアリング</span>
-        <span>デバイスID入力</span>
-      </div>
-    </div>
-    <div class="screens-group">
-      <h4>設定<span class="count">3</span></h4>
-      <div class="chip-row">
-        <span>通知設定</span>
-        <span>プライバシー設定</span>
-        <span>利用規約</span>
-      </div>
-    </div>
   </div>
 
 
@@ -482,26 +453,6 @@
       <h4>go_router の ShellRoute</h4>
       <p>フローティング型ボトムナビを画面遷移しても常駐させ、<b>ネイティブアプリ並みのUX</b> を確保しました。</p>
     </div>
-    <div class="highlight-card">
-      <div class="label">STATE</div>
-      <h4>Provider + ChangeNotifier</h4>
-      <p>学習コストと拡張性のバランスを取り、<b>小〜中規模チーム開発</b> に最適化された状態管理を採用しました。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="label">BACKEND</div>
-      <h4>Firebase に一本化</h4>
-      <p>Auth / Firestore / FCM / Storage を統合。バックエンド構築コストを削減し、<b>フロント体験</b> に集中できる構成にしました。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="label">IoT</div>
-      <h4>BLE で Wi-Fi プロビジョニング</h4>
-      <p>アプリから <b>M5Stack の Wi-Fi 設定を完結</b> できる UX を設計。ハードのセットアップをアプリだけで終わらせます。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="label">NOTIFICATION</div>
-      <h4>NotificationService のシングルトン化</h4>
-      <p>FCM とローカル通知を一元管理。<b>バックグラウンド配信</b> も含めて堅牢にハンドリングしました。</p>
-    </div>
   </div>
 
 
@@ -510,8 +461,8 @@
   <div class="highlight-grid">
     <div class="highlight-card">
       <div class="label">BRANDING</div>
-      <h4>「身軽になる」を色とかたちで</h4>
-      <p>暖かい <b>オレンジ (#FF7B00)</b> と丸みのあるあしらいで、「持ち物を減らす＝身軽になる」世界観を表現しました。</p>
+      <h4>見守ってくれる安心感を、オレンジで</h4>
+      <p><b>オレンジ (#FF7B00)</b> は温かみがあり、「見守ってくれている」という安心感を持たせられる色。毎日触れるアプリだからこそ、ユーザーにそっと寄り添うトーンを選びました。</p>
     </div>
     <div class="highlight-card">
       <div class="label">TYPOGRAPHY</div>
@@ -519,24 +470,9 @@
       <p>柔らかく親しみやすい印象を全画面で維持。<b>毎日触れるアプリ</b> としての温度感を意識しました。</p>
     </div>
     <div class="highlight-card">
-      <div class="label">MOTIF</div>
-      <h4>四隅のクリーム & オレンジの円</h4>
-      <p>全画面で同じ装飾モチーフを配置し、<b>世界観の一貫性</b> を保ちました。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="label">NAVIGATION</div>
-      <h4>浮遊するピル型のフローティングナビ</h4>
-      <p>近未来感と <b>アクセシビリティ</b> を両立。指の届きやすい位置にメインアクションを配置しました。</p>
-    </div>
-    <div class="highlight-card">
       <div class="label">DATA-VIZ</div>
       <h4>連続記録のストリーク表示</h4>
       <p>カレンダー画面で「忘れなかった日」を <b>直感的に把握</b> できる可視化を設計しました。</p>
-    </div>
-    <div class="highlight-card">
-      <div class="label">RESPONSIVE</div>
-      <h4>iPhone SE 〜 Android タブレットまで</h4>
-      <p>FittedBox / Expanded を活用し、<b>幅広い端末</b> でオーバーフローなく表示できるレイアウトに。</p>
     </div>
   </div>
 
@@ -544,12 +480,11 @@
   <div class="section-label">PROJECT INFO</div>
 
   <div class="md-stats">
-    <div><div class="k">EVENT</div><div class="v">技育博 2026</div></div>
+    <div><div class="k">EVENT</div><div class="v"><a href="https://x.com/geek_pjt/status/2060677261968465991?s=20" target="_blank" rel="noopener" class="event-link">技育博 2026</a></div></div>
     <div><div class="k">TEAM</div><div class="v">Kotex</div></div>
     <div><div class="k">ROLE</div><div class="v">Front-end / UI Design</div></div>
-    <div><div class="k">SCREENS</div><div class="v">全17画面</div></div>
     <div><div class="k">STACK</div><div class="v">Flutter · Firebase · M5Stack</div></div>
-    <div><div class="k">AWARD</div><div class="v" style="color:var(--accent)">carta賞</div></div>
+    <div><div class="k">AWARD</div><div class="v" style="color:var(--accent)">CARTA賞</div></div>
   </div>
 
   <a href="https://www.figma.com/proto/BZMUtXE0FA8NLO8KDePUpT/Motteko?node-id=229-3574&t=EoFbOY7aZM6XFxdT-1" target="_blank" rel="noopener" class="slide-link">

@@ -255,6 +255,26 @@
     }
 
     /* ===== Slide link ===== */
+    /* ===== Inline event link ===== */
+    .event-link {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: rgba(34, 197, 94, .5);
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1.5px;
+      transition: color .2s, text-decoration-color .2s;
+    }
+    .event-link:hover {
+      color: var(--green);
+      text-decoration-color: var(--green);
+    }
+    .md-stats .event-link {
+      text-decoration-color: rgba(34, 197, 94, .85);
+    }
+    .md-stats .event-link:hover {
+      color: var(--green);
+    }
+
     .slide-link {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--green); color: #fff;
@@ -307,7 +327,7 @@
     <div class="hero-tag">DEEP DIVE · CASE 02</div>
     <h1 class="hero-title">Passly<span class="dot">.</span></h1>
     <p class="hero-catch">すれ違いを、出会いに。</p>
-    <p class="hero-sub">すれ違うだけでエンジニア同士がつながれるアプリ。<br/>SysHack 2026（2週間ハッカソン）で <b>最優秀賞</b> を受賞。現在もチームで継続開発中。</p>
+    <p class="hero-sub">すれ違うだけでエンジニア同士がつながれるアプリ。<br/><a href="https://x.com/set_official/status/2038928985493762354?s=20" target="_blank" rel="noopener" class="event-link">SysHack 2026</a>（2週間ハッカソン）で <b>最優秀賞</b> を受賞。現在もチームで継続開発中。</p>
   </div>
 </section>
 
@@ -349,7 +369,7 @@
       <section class="md-block">
         <div class="md-num">04</div>
         <h3>結果 — 最優秀賞 受賞</h3>
-        <p>SysHack 2026 にて<b>最優秀賞</b>を受賞。アーキテクチャ設計、プライバシー配慮、UI の完成度が高く評価されました。<br/>現在もチームで継続開発を進めています。</p>
+        <p><a href="https://x.com/set_official/status/2038928985493762354?s=20" target="_blank" rel="noopener" class="event-link">SysHack 2026</a> にて<b>最優秀賞</b>を受賞。アーキテクチャ設計、プライバシー配慮、UI の完成度が高く評価されました。<br/>現在もチームで継続開発を進めています。</p>
       </section>
     </div>
   </div>
@@ -388,7 +408,7 @@
   <div class="section-label">PROJECT INFO</div>
 
   <div class="md-stats">
-    <div><div class="k">EVENT</div><div class="v">SysHack 2026</div></div>
+    <div><div class="k">EVENT</div><div class="v"><a href="https://x.com/set_official/status/2038928985493762354?s=20" target="_blank" rel="noopener" class="event-link">SysHack 2026</a></div></div>
     <div><div class="k">PERIOD</div><div class="v">2週間</div></div>
     <div><div class="k">ROLE</div><div class="v">Design / Front / 発表</div></div>
     <div><div class="k">STACK</div><div class="v">Flutter · Go · BLE</div></div>
@@ -403,8 +423,8 @@
       <p class="review-body">Bluetoothを使った技術の掛け合わせがおもしろい。アーキテクチャしっかり固めてるし、大事な守りの部分も満たしている。</p>
       <div class="review-author">
         <div>
-          <div class="review-name">田中 雄登</div>
-          <div class="review-role">DIP CORPORATION</div>
+          <div class="review-name">DIP CORPORATION</div>
+          <div class="review-role">JUDGE</div>
         </div>
       </div>
     </div>
@@ -413,8 +433,8 @@
       <p class="review-body">あるあるな課題をすれ違い通信で解決するアイデアが面白かった。Bluetoothをバックグラウンドで持続させる技術的な難しさにも正面から向き合っていて、プライバシーへの配慮も含めて「本気でリリースしたい」という熱量がしっかり伝わってきた。UIも細部まで作り込まれていて好印象。</p>
       <div class="review-author">
         <div>
-          <div class="review-name">松田 知也</div>
-          <div class="review-role">DIP CORPORATION</div>
+          <div class="review-name">DIP CORPORATION</div>
+          <div class="review-role">JUDGE</div>
         </div>
       </div>
     </div>
@@ -423,8 +443,8 @@
       <p class="review-body">BLE通信をハッカソンの中で選択し実装まで落とし込んでいる点に、技術的なチャレンジの高さを感じた。個人情報を取得せずに価値を提供しようとする設計も非常に良い観点。プロダクトの完成度も高く、実際に使われるイメージがしやすい。</p>
       <div class="review-author">
         <div>
-          <div class="review-name">目黒 翔太</div>
-          <div class="review-role">DMM.COM</div>
+          <div class="review-name">DMM.COM</div>
+          <div class="review-role">JUDGE</div>
         </div>
       </div>
     </div>
@@ -433,8 +453,8 @@
       <p class="review-body">コンセプトがよく、実際に使えたら面白い。必要な機能がまとめられている印象。全体的なデザインも統一されていて良かった。</p>
       <div class="review-author">
         <div>
-          <div class="review-name">西澤 悠貴</div>
-          <div class="review-role">CYBERAGENT</div>
+          <div class="review-name">CYBERAGENT</div>
+          <div class="review-role">JUDGE</div>
         </div>
       </div>
     </div>
@@ -443,8 +463,8 @@
       <p class="review-body">位置情報を利用しないという設計にしたことで、セキュリティ面に配慮しつつバックグラウンドでの利用も可能になっている部分が設計として素晴らしい。「すれ違いを出会いに」というキャッチコピーも初見の人にも伝わる。</p>
       <div class="review-author">
         <div>
-          <div class="review-name">竹田 暁美</div>
-          <div class="review-role">SUPPORTERS</div>
+          <div class="review-name">SUPPORTERS</div>
+          <div class="review-role">JUDGE</div>
         </div>
       </div>
     </div>
