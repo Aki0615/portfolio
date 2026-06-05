@@ -79,7 +79,7 @@ if (!isTouch && !reducedMotion) {
     requestAnimationFrame(moveDot);
   })();
 
-  const hoverTargets = 'a, button, .work, .skill-card, .like';
+  const hoverTargets = 'a, button, .work';
   document.addEventListener('mouseover', e => {
     if (e.target.closest(hoverTargets)) dot.classList.add('hover');
   });
