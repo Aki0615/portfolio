@@ -218,11 +218,17 @@ footer::before {
   width: 100%;
   max-width: 1363px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-img {
-  width: 100%;
+  display: block;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 220px);
+  transform: translateY(60px);
 }
 
 
